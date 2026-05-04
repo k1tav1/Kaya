@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import '../services/supabase_service.dart';
+import '../services/theme_controller.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   final String memberId;
@@ -758,6 +760,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     onChanged: (value) async {
                       setState(() => darkMode = value);
                       await _savePreferenceSettings();
+                      if (context.mounted) {
+                        Provider.of<ThemeController>(context, listen: false)
+                            .setSettings({
+                          'dark_mode': value,
+                          'meeting_reminders': meetingReminders,
+                          'contribution_reminders': contributionReminders,
+                          'loan_reminders': loanReminders,
+                        });
+                      }
                       _snack("Dark mode preference saved.");
                     },
                     secondary: const Icon(Icons.dark_mode),
