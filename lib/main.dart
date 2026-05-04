@@ -23,7 +23,7 @@ Future<void> main() async {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1dnVrYmNpcWNqenFjbWNseXhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxMTgyMzIsImV4cCI6MjA4NDY5NDIzMn0.9tUpaWeSls7NZKQHd93wYzRKSbriGbbns8d4BTCueXE',
   );
 
-  // await NotificationService.initialize();
+  await NotificationService.initialize();
 
   runApp(
     ChangeNotifierProvider(

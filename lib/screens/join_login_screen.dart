@@ -280,10 +280,10 @@ class _JoinLoginChamaPageState extends State<JoinLoginChamaPage> {
         password: password,
         activeChamaId: chamaId,
       );
-      // await NotificationService.registerDeviceForMember(
-      //   memberId: memberId,
-      //   chamaId: chamaId,
-      // );
+      await NotificationService.registerDeviceForMember(
+        memberId: memberId,
+        chamaId: chamaId,
+      );
 
       if (!mounted) return;
 
